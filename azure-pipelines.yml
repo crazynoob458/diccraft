@@ -10,6 +10,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
@@ -18,7 +19,7 @@ pool:
     archiveFile: 'diccraft.zip'
     replaceExistingArchive: true
     
-  - task: PublishPipelineArtifact@1
+- task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
     artifact: 'diccraft.zip'
