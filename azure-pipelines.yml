@@ -5,6 +5,13 @@
 
 trigger:
 - main
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: 'diccraft.zip'
+    replaceExistingArchive: true
 
 pool:
   vmImage: ubuntu-latest
