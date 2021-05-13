@@ -1,17 +1,10 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
-
 
 pool:
   vmImage: ubuntu-latest
 
-
-displayname: 'do it'
+steps:
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
@@ -19,9 +12,8 @@ displayname: 'do it'
     archiveType: 'zip'
     archiveFile: 'diccraft.zip'
     replaceExistingArchive: true
-    
+
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'diccraft.zip'
+    targetPath: 'diccraft.zip'
     publishLocation: 'pipeline'
