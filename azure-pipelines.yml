@@ -7,8 +7,8 @@ pool:
 steps:
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'diccraft'
-    includeRootFolder: true
+    rootFolderOrFile: '$(Build.Repository.LocalPath)'
+    includeRootFolder: false
     archiveType: 'zip'
     archiveFile: 'diccraft.zip'
     replaceExistingArchive: true
